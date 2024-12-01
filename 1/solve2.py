@@ -9,8 +9,7 @@ def main():
         nums = line.split()
         left[int(nums[0])] += 1
         right[int(nums[1])] += 1
-    for num, count in left.items():
-        total += num*count*right[num]
+    total = sum(num*count*right[num] for num, count in left.items())
     print(f'similarity score: {total}')
 
 if __name__ == '__main__':
