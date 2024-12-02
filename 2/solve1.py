@@ -1,8 +1,9 @@
+import itertools
 import sys
 
 def is_safe(report: list[int]) -> bool:
-    inc = all(0 < (b - a) < 4 for a, b in zip(report, report[1:]))
-    dec = all(0 < (a - b) < 4 for a, b in zip(report, report[1:]))
+    inc = all(0 < (b - a) < 4 for a, b in itertools.pairwise(report))
+    dec = all(0 < (a - b) < 4 for a, b in itertools.pairwise(report))
     return inc or dec
 
 def main():
