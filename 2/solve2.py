@@ -16,7 +16,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
-# lst = list(range(10))
-# for i in range(len(lst)):
-    # print(lst[:i] + lst[i+1:])
