@@ -6,7 +6,7 @@ def sum_mul(text: str) -> int:
     return sum(a*b for a, b in (map(int, match) for match in pattern.findall(text)))
 
 def main():
-    print(sum(sum_mul(line) for line in sys.stdin))
+    print(sum_mul(sys.stdin.read()))
 
 if __name__ == '__main__':
     main()
