@@ -3,7 +3,7 @@ import itertools
 import sys
 import typing
 
-def sliding_window(iterable, n):
+def sliding_window(iterable: typing.Iterable, n: int) -> typing.Generator[list, None, None]:
     "Collect data into overlapping fixed-length chunks or blocks."
     # copied from https://docs.python.org/3.12/library/itertools.html
     # sliding_window('ABCDEFG', 4) → ABCD BCDE CDEF DEFG
