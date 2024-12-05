@@ -13,12 +13,15 @@ def sliding_window(iterable, n):
         window.append(x)
         yield list(window)
 
-def search_patterns(puzzle: str) -> typing.Generator[list[str], None, None]:
+def search_patterns(puzzle: list[str]) -> typing.Generator[list[str], None, None]:
+    "Collect all 3x3 sub-grids in `puzzle`"
     for a in sliding_window(puzzle, 3):
         for b in sliding_window(zip(*a), 3):
             yield [''.join(row) for row in zip(*b)]
 
-def is_xmas(chunk) -> bool:
+def is_xmas(chunk: list[str]) -> bool:
+    "Return True if `chunk` is an X-MAS"
+    assert len(chunk) == 3 and len(chunk[0] == 3)
     diag = ''.join(chunk[i][i] for i in range(len(chunk)))
     chunk_transpose = [list(reversed(row)) for row in chunk]
     cdiag = ''.join(chunk_transpose[i][i] for i in range(len(chunk)))
